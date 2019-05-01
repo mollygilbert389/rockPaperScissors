@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock, Paper, Scissors</title>
+
+<div id="game">
+    <h1 id="directions">Directions: type R P or S (rock, paper or scissors) on the keyboard to play.</h1>
+    <h1 id="wins">Wins:</h1>
+    <h1 id="losses">Losses:</h1>
+    <h1 id="ties">Ties:</h1>
+</div>
+
+</head>
+<body>
+    
+
+<script>
+
+    var options = ["r", "p", "s"];
+    var wins =0;
+    var loses=0;
+    var tie=0;
+    
+    document.onkeyup = function() {
+        var userGuess = String.fromCharCode(event.keyCode)
+            .toLowerCase();
+            console.log(userGuess + "line 19");
+
+    var computerGuess = options[Math.floor(Math.random() * options.length)]
+
+    console.log(computerGuess + "line 24")
+
+    if (userGuess== 'r' || userGuess== 'p' || userGuess== 's') {
+        if ((userGuess== 'r') && (computerGuess=='r')) {
+            alert("Tie!")
+            tie++
+        } if ((userGuess== 'r') && (computerGuess=='p')) {
+            loses++
+        } if ((userGuess== 'r') && (computerGuess=='s')) {
+            wins++
+        } if ((userGuess== 'p') && (computerGuess=='p')) {
+            tie++
+        } if ((userGuess== 'p') && (computerGuess=='s')) {
+            loses++
+        } if ((userGuess== 'p') && (computerGuess=='r')) {
+            wins++
+        } if ((userGuess== 's') && (computerGuess=='s')) {
+            tie++
+        } if ((userGuess== 's') && (computerGuess=='r')) {
+            loses++
+        } if ((userGuess== 's') && (computerGuess=='p')) {
+            wins++
+        }
+    } else {
+        alert("Only R, P, or S")
+    }
+
+    var html ="<h1> Directions: type R P or S (rock, paper or scissors) on the keyboard to play.</h1>" +
+    "<h1>Wins:" + wins + "</h1>" +
+    "<h1>Losses:" + loses + "</h1>" +
+    "<h1>Ties:" + tie + "</h1>";
+
+    document.querySelector('#game').innerHTML = html;
+}
+
+</script>
+
+</body>
+</html>
